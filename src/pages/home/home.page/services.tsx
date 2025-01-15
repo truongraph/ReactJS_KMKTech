@@ -11,7 +11,7 @@ const Services = () => {
         </p>
         <div className="max-w-screen-lg mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-9">
-            <div data-aos="fade-up" data-aos-once="true"  className="text-center p-5 border rounded-xl bg-white card-style card-animation">
+            <div  className="text-center p-5 border rounded-xl bg-white card-style card-animation">
               <img
                 src="images/home/1.png"
                 className="w-17 h-17  block mx-auto  border rounded-xl p-4"
@@ -22,7 +22,7 @@ const Services = () => {
                 Building and developing software
               </p>
             </div>
-            <div data-aos="fade-down" data-aos-once="true" className="text-center p-5 border rounded-xl bg-white card-style card-animation">
+            <div className="text-center p-5 border rounded-xl bg-white card-style card-animation">
               <img
                 src="images/home/2.png"
                 className="w-17 h-17  block mx-auto border rounded-xl p-4"
@@ -33,7 +33,7 @@ const Services = () => {
                 Consulting ERP solutions (Oracle EBS, SAP)
               </p>
             </div>
-            <div data-aos="fade-up"  data-aos-once="true"className="text-center p-5 border rounded-xl bg-white card-style card-animation">
+            <div className="text-center p-5 border rounded-xl bg-white card-style card-animation">
               <img
                 src="images/home/3.png"
                 className="w-17 h-17  block mx-auto border rounded-xl p-4"
@@ -42,7 +42,7 @@ const Services = () => {
               <p className="mt-3 font-bold text-xl">Cloud Server </p>
               <p className="mt-2  text-lg lg:text-base">Providing IT infrastructure equipment</p>
             </div>
-            <div data-aos="fade-up" data-aos-once="true" className="text-center p-5 border rounded-xl bg-white card-style card-animation">
+            <div className="text-center p-5 border rounded-xl bg-white card-style card-animation">
               <img
                 src="images/home/ic-client-based.svg"
                 className="w-17 h-17  block mx-auto border rounded-xl p-4"

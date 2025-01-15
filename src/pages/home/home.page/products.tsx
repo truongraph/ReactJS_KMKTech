@@ -59,7 +59,6 @@ const Products = () => {
               product.name === "YHGD - Vietnamese Family Medicine";
             return (
               <div
-               data-aos="fade-up" data-aos-once="true"
                 key={index}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-5 border rounded-xl bg-white card-style card-animation"
               >
