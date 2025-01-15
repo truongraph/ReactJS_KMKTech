@@ -70,7 +70,7 @@ const DotCursor = () => {
           left: `${dotPosition.x}px`,
           top: `${dotPosition.y}px`,
           transform: isHovering
-            ? "translate(-50%, -50%) scale(8)"
+            ? "translate(-50%, -50%) scale(4)"
             : "translate(-50%, -50%) scale(1)",
           backgroundColor: isHovering ? "rgba(8, 89, 216,0.30)" : "rgb(8, 89, 216)", // Mờ khi hover
         }}
