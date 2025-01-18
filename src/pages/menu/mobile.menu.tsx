@@ -15,11 +15,13 @@ const MobileMenu = () => {
   };
 
   const Menulist = [
-    { name: "introduce", link: "#introduct" },
+    { name: "introduce", link: "#introduce" },
     { name: "products", link: "#products" },
     { name: "services", link: "#services" },
     { name: "clients", link: "#clients" },
+    { name: "contact", link: "#contact" }
   ];
+
 
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
