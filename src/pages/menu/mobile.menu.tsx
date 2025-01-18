@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { LANGUAGES } from "../../../constants";
+import { LANGUAGES } from "../../constants";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import gsap from "gsap";

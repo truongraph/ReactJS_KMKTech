@@ -8,5 +8,5 @@ export default defineConfig({
       '@': '/src',
       'react-router-dom': 'react-router-dom'
     }
-  }
+  },
 });

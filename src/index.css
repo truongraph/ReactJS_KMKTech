@@ -239,7 +239,7 @@
 
 .latest-projects,
 .services,
-.clients {
+.clients,.about-company{
   border-radius: 40px;
   background: #f7f7f7;
   position: relative;
@@ -330,65 +330,6 @@
   animation: moveUpDown 7s ease-in-out infinite;
 }
 
-/* .tool-item {
-  animation: moveUpDown 7s ease-in-out infinite;
-}
-
-.tool-item:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.tool-item:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.tool-item:nth-child(3) {
-  animation-delay: 2s;
-}
-
-.tool-item:nth-child(4) {
-  animation-delay: 3s;
-}
-
-.tool-item:nth-child(5) {
-  animation-delay: 4s;
-}
-
-.tool-item:nth-child(6) {
-  animation-delay: 5s;
-}
-
-.tool-item:nth-child(7) {
-  animation-delay: 6s;
-}
-
-.tool-item:nth-child(8) {
-  animation-delay: 7s;
-}
-
-.tool-item:nth-child(9) {
-  animation-delay: 8s;
-}
-
-.tool-item:nth-child(10) {
-  animation-delay: 9s;
-}
-
-.tool-item:nth-child(11) {
-  animation-delay: 10s;
-}
-
-.tool-item:nth-child(12) {
-  animation-delay: 11s;
-}
-
-.tool-item:nth-child(13) {
-  animation-delay: 12s;
-}
-
-.tool-item:nth-child(14) {
-  animation-delay: 13s;
-} */
 
 @keyframes bounce {
 
@@ -494,6 +435,26 @@
   z-index: 9998;
 }
 
+.about-section {
+  background: url(/public/images/home/bgr-squeres.svg) 0 0 / 64px #f7f7f7;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
 
-
-
+.about-section:after {
+  bottom: -20%;
+  left: 50%;
+  width: 100%;
+  height: 50%;
+  background: rgb(29 120 255 / 25%);
+  filter: blur(50px);
+  z-index: 1;
+  position: absolute;
+  transform: translateX(-50%);
+  border-radius: 20%;
+  content: '';
+}

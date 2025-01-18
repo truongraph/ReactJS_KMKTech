@@ -93,7 +93,7 @@ const Introduce = () => {
         </div>
       </div>
       <section
-        id="introduct"
+        id="introduce"
         className="intro block mx-auto max-w-screen-lg py-20 px-20 position-relative border-sm-0"
       >
         <p

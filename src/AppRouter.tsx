@@ -1,7 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import HomePage from "./pages/home/home.page";
-import AboutPage from "./pages/home/about";
-import NotFound from "./pages/home/notfound";
+
+import NotFound from "./pages/notfound";
+import HomePage from "./pages";
+
 
 
 export default function AppRouter() {
@@ -9,7 +10,6 @@ export default function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

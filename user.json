@@ -1,0 +1,52 @@
+{
+    "users": {
+      "1": {
+        "id": "1",
+        "username": "alice",
+        "password": "password123",
+        "name": "Alice Smith",
+        "fone": "1234567890"
+      },
+      "2": {
+        "id": "2",
+        "username": "bob",
+        "password": "password456",
+        "name": "Bob Johnson",
+        "fone": "0987654321"
+      },
+      "3": {
+        "id": "3",
+        "username": "charlie",
+        "password": "password789",
+        "name": "Charlie Brown",
+        "fone": "1122334455"
+      }
+    },
+    "blogs": {
+      "1": {
+        "id": "1",
+        "title": "First Blog Post",
+        "subtitle": "Introduction to Firebase",
+        "image": "https://example.com/image1.jpg",
+        "content": "This is the content of the first blog post. Firebase is a powerful tool for building real-time apps.",
+        "author": "Alice Smith"
+      },
+      "2": {
+        "id": "2",
+        "title": "Second Blog Post",
+        "subtitle": "Deep Dive into Firestore",
+        "image": "https://example.com/image2.jpg",
+        "content": "In this post, we explore Firestore and how it differs from Firebase Realtime Database.",
+        "author": "Bob Johnson"
+      },
+      "3": {
+        "id": "3",
+        "title": "Third Blog Post",
+        "subtitle": "Building a Full Stack Application",
+        "image": "https://example.com/image3.jpg",
+        "content": "Learn how to build a full-stack application with React, Firebase, and Firestore.",
+        "author": "Charlie Brown"
+      }
+    }
+  }
+  
