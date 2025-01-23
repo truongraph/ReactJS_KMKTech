@@ -1,5 +1,6 @@
 import Clients from "./home/clients";
 import Contact from "./home/contact";
+import Footer from "./home/footer";
 import Introduce from "./home/introduce";
 import Platform from "./home/platform";
 import Products from "./home/products";
@@ -17,6 +18,7 @@ const HomePage = () => {
       <Services />
       <Clients />
       <Contact />
+      <Footer/>
     </>
   );
 };

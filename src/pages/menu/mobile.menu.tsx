@@ -15,6 +15,7 @@ const MobileMenu = () => {
   };
 
   const Menulist = [
+    { name: "home", link: "#home" },
     { name: "introduce", link: "#introduce" },
     { name: "products", link: "#products" },
     { name: "services", link: "#services" },
@@ -118,7 +119,7 @@ const MobileMenu = () => {
               ))}
             </ul>
           </div>
-          <div className="">
+          <div className="hidden">
           {LANGUAGES.map(({ code, label, flag }) => (
             <button
               key={code}

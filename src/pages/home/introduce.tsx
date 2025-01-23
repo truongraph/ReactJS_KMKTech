@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 const Introduce = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const CorporateItems = [
     { name: "Pepsico", logo: "images/svg/corporate/pepsico-logo.svg" },
     { name: "An Cường", logo: "images/svg/corporate/an-cuong.svg" },
@@ -21,9 +21,27 @@ const Introduce = () => {
     });
   };
 
+  const items = [
+    {
+      imgSrc: "images/home/ic-integrity.svg",
+      title: t("ic_integrity_title"),
+      description: t("ic_integrity_description")
+    },
+    {
+      imgSrc: "images/home/ic-collaboration.svg",
+      title: t("ic_collaboration_title"),
+      description: t("ic_collaboration_description")
+    },
+    {
+      imgSrc: "images/home/ic-target.svg",
+      title: t("ic_target_title"),
+      description: t("ic_target_description")
+    }
+  ];
+
   return (
     <>
-      <section className="interactive-header flex items-center h-[89vh]">
+      <section id="home" className="interactive-header flex items-center h-[89vh]">
         <div className="header-hero text-center px-4">
           <div
             data-aos="fade-up"
@@ -51,14 +69,18 @@ const Introduce = () => {
             {t("innovate_excellence")}
           </h1>
           <div className="max-w-screen-md mx-auto">
-          <p data-aos="fade-up" className="text-xl leading-8 text-[#4b4b4c]" dangerouslySetInnerHTML={{ __html: t('business_simplification') }} />
+            <p
+              data-aos="fade-up"
+              className="text-xl leading-8 text-[#4b4b4c]"
+              dangerouslySetInnerHTML={{ __html: t("business_simplification") }}
+            />
           </div>
           <div className="max-w-screen-md mx-auto mt-15 flex items-center justify-center">
             <button
               data-aos="zoom-out"
               className="bg-[#0859D8] hover:bg-[#0C5DDD] p-4 text-lg px-10 rounded-2xl font-medium text-white"
             >
-              Contact Us
+              {t("contact_us")}
             </button>
           </div>
         </div>
@@ -72,15 +94,11 @@ const Introduce = () => {
           height="110"
         />
         <div className="flex justify-center items-center w-full overflow-hidden">
-          <div
-           x-data="{}"
-           x-init="$nextTick(() => {
-               let ul = $refs.logos;
-               ul.insertAdjacentHTML('afterend', ul.outerHTML);
-               ul.nextSibling.setAttribute('aria-hidden', 'true');
-           })"
-          className="logos-wrapper flex gap-10">
-            {CorporateItems.concat(CorporateItems).map((item, index) => (
+          <div          
+            className="logos-wrapper"
+          >
+              <div className="logos flex gap-10">
+              {CorporateItems.concat(CorporateItems).map((item, index) => (
               <div key={index} className="flex-shrink-0 mx-4">
                 <img
                   className="h-12 logo-corporate object-fill rounded"
@@ -89,6 +107,7 @@ const Introduce = () => {
                 />
               </div>
             ))}
+              </div>
           </div>
         </div>
       </div>
@@ -104,7 +123,7 @@ const Introduce = () => {
         >
           {t("empowering_innovation")}
         </p>
-        <div className="block lg:flex gap-30 justify-between items-center">
+        <div className="block lg:flex gap-10 justify-between items-center">
           <div className="mb-20 lg:mb-0">
             <p
               data-aos="fade-up"
@@ -112,103 +131,51 @@ const Introduce = () => {
               data-aos-once="true"
               className="text-lg text-[#4b4b4c]"
             >
-               {t("vision")}
+              {t("vision")}
             </p>
             <button className="bg-[#fff] p-4 px-10 rounded-xl font-medium text-black border border-[#a3a3a3] mt-3">
-            {t("see_more_about_us")}
+              {t("see_more_about_us")}
             </button>
           </div>
           <img
             data-aos="fade-up"
             data-aos-anchor-placement="top-bottom"
             data-aos-once="true"
-            src="images/home/Innovation-amico.svg"
+            src="logo/bg.png"
             alt=""
-            className="w-120 img-animation"
+            className="w-135 h-100 rounded-lg"
           />
         </div>
       </section>
       <section className="why-us py-20 px-20 lg:px-30 position-relative border-sm-0">
         <div className="max-w-screen-lg mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-15">
-            <div className="text-[#e0e0ed] text-left">
-              <img
-                src="images/home/ic-integrity.svg"
-                data-aos="fade-up"
-                data-aos-once="true"
-                className="w-17 h-17 bg-[#0a1c36] rounded-xl p-4"
-                alt=""
-              />
-              <p
-                className="mt-3 font-bold text-2xl"
-                data-aos="fade-up"
-                data-aos-once="true"
-              >
-                {" "}
-                Constantly Expanding
-              </p>
-              <p
-                className="text-lg lg:text-base mt-2"
-                data-aos="fade-up"
-                data-aos-once="true"
-              >
-                Technology in the age of Industry 4.0 is transforming the world
-                daily. More than ever, it is reshaping how we connect and
-                collaborate. It empowers us to work more efficiently, manage
-                operations intelligently
-              </p>
-            </div>
-            <div className="text-[#e0e0ed] text-left">
-              <img
-                data-aos="fade-up"
-                data-aos-once="true"
-                src="images/home/ic-collaboration.svg"
-                className="w-17 h-17  bg-[#0a1c36] rounded-xl p-4"
-                alt=""
-              />
-              <p
-                className="mt-3 font-bold text-2xl"
-                data-aos="fade-up"
-                data-aos-once="true"
-              >
-                Work is happiness
-              </p>
-              <p
-                className="text-lg lg:text-base mt-2"
-                data-aos="fade-up"
-                data-aos-once="true"
-              >
-                We believe that every business is built by the burning
-                aspirations of everyone - founders, leaders, employees and
-                anyone else who is working shoulder to shoulder every day to
-                create good values for society
-              </p>
-            </div>
-            <div className="text-[#e0e0ed] text-left">
-              <img
-                src="images/home/ic-target.svg"
-                data-aos="fade-up"
-                data-aos-once="true"
-                className="w-17 h-17 bg-[#0a1c36] rounded-xl p-4"
-                alt=""
-              />
-              <p
-                className="mt-3 font-bold text-2xl"
-                data-aos="fade-up"
-                data-aos-once="true"
-              >
-                Companion & Development
-              </p>
-              <p
-                className="text-lg lg:text-base mt-2"
-                data-aos="fade-up"
-                data-aos-once="true"
-              >
-                With easier collaboration, smarter tools that simplify tasks,
-                and unwavering support from KMK, we’re here to help you overcome
-                challenges and find happiness in your daily work.
-              </p>
-            </div>
+            {items.map((item, index) => (
+              <div className="text-[#e0e0ed] text-left" key={index}>
+                <img
+                  src={item.imgSrc}
+                  data-aos="fade-up"
+                  data-aos-once="true"
+                  className="w-17 h-17 bg-[#0a1c36] rounded-xl p-4"
+                  alt=""
+                />
+                <p
+                  className="mt-3 font-bold text-2xl"
+                  data-aos="fade-up"
+                  data-aos-once="true"
+                >
+                  {" "}
+                  {item.title}
+                </p>
+                <p
+                  className="text-lg lg:text-base mt-2"
+                  data-aos="fade-up"
+                  data-aos-once="true"
+                >
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

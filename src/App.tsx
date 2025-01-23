@@ -1,13 +1,9 @@
 import { RecoilRoot } from "recoil";
 import { ReactFlowProvider } from "reactflow";
 import { QueryClient, QueryClientProvider } from "react-query";
-//import { CookiesProvider } from "react-cookie";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AppRouter from "./AppRouter";
-
-// import { database } from "../firebase";
-// import { child, get, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import DotCursor from "./pages/component/animatedCursor";
 
@@ -18,29 +14,21 @@ function App() {
       queries: {
         cacheTime: Infinity,
         refetchOnWindowFocus: false,
-        retry: false
-      }
-    }
+        retry: false,
+      },
+    },
   });
-  //const dbRef = ref(database);
-  // get(child(dbRef, `users`))
-  //   .then((snapshot) => {
-  //     if (snapshot.exists()) {
-  //       console.log(snapshot.val());
-  //     } else {
-  //       console.log("No data available");
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-  const [loading, setLoading] = useState(false);
+
+  const [loading, setLoading] = useState(true); // Bắt đầu ở trạng thái loading
+  const [fadeOut, setFadeOut] = useState(false); // Kiểm soát mờ dần
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    const timeout = setTimeout(() => {
+      setFadeOut(true); // Kích hoạt mờ dần
+      setTimeout(() => setLoading(false), 500); // Ẩn hoàn toàn sau 0.5 giây (khớp với transition)
+    }, 1000); // Thời gian hiển thị loader (1 giây)
+
+    return () => clearTimeout(timeout);
   }, []);
 
   const [showButton, setShowButton] = useState(false);
@@ -54,27 +42,29 @@ function App() {
       }
     });
   }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
   return (
     <>
-      {loading ? (
-        <div className="loader-container bg-white">
+      {loading && (
+        <div className={`loader-container ${fadeOut ? "hidden" : ""}`}>
           <div>
             <img
-              src={"/images/logo/kmk/long-logo.png"}
+              src={"/logo/whitelonglogo.png"}
               alt="Logo"
-              className="block m-auto w-100"
+              className="block m-auto w-80"
             />
             <div className="spinner"></div>
           </div>
         </div>
-      ) : (
+      )}
+      {!loading && (
         <>
           <RecoilRoot>
             <ReactFlowProvider>

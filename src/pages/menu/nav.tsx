@@ -15,6 +15,7 @@ const Navbar = () => {
   };
 
   const Menulist = [
+    { name: "home", link: "#home" },
     { name: "introduce", link: "#introduce" },
     { name: "products", link: "#products" },
     { name: "services", link: "#services" },
@@ -69,7 +70,7 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div className="justify-end flex items-center gap-4 px-8">
+            <div className="justify-end hidden items-center gap-4 px-8">
               {LANGUAGES.map(({ code, label, flag }) => (
                 <button
                   key={code}
