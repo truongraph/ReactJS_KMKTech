@@ -18,25 +18,34 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+  
+    if (isSubmitting) return; // Ngừng gửi nếu đang gửi
+  
+    setIsSubmitting(true);
+  
     const formRef = ref(database, "contacts/" + Date.now());
     set(formRef, formData)
-  .then(() => {
-    setIsSuccess(true);
-    setTimeout(() => setIsSuccess(false), 4000);
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: ""
-    });
-  })
-  .catch((error) => {
-    console.error("Error writing to Firebase:", error);
-    // Bạn có thể hiển thị lỗi cho người dùng nếu cần
-  });
+      .then(() => {
+        setIsSuccess(true);
+        setTimeout(() => setIsSuccess(false), 4000);
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+      })
+      .catch((error) => {
+        console.error("Error writing to Firebase:", error);
+      })
+      .finally(() => {
+        setIsSubmitting(false); // Bật lại nút gửi sau khi gửi xong
+      });
   };
 
   return (
@@ -115,12 +124,13 @@ const Contact = () => {
                 className="w-full p-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-1 focus:ring-blue-500"
                 required
               />
-              <button
-                type="submit"
-                className="bg-[#0859D8] w-full hover:bg-[#0C5DDD] p-4 px-10 rounded-2xl font-medium text-white"
-              >
-                Send Information
-              </button>
+            <button
+  type="submit"
+  className="bg-[#0859D8] w-full hover:bg-[#0C5DDD] p-4 px-10 rounded-2xl font-medium text-white"
+  disabled={isSubmitting}
+>
+  Send Information
+</button>
             </form>
             {isSuccess && <p className="text-center text-[#25b838] mt-4 font-bold border w-full p-2 rounded-2xl border-[#25b838]">
               Thank you! Your information has been sent successfully!
