@@ -172,8 +172,8 @@
   left: 0;
   right: 0;
   margin-left: auto;
-  overflow: hidden;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .logos-wrapper {
@@ -184,58 +184,28 @@
   display: flex;
   position: relative;
 }
-.logos{
-  width: calc(100%);
-    animation: 60s linear infinite scroll-logo;
-}
 
-@-webkit-keyframes logoloop {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@-moz-keyframes logoloop {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@-o-keyframes logoloop {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes logoloop {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
+.logos {
+  display: flex;
+  width: 100%; /* Đảm bảo chiều rộng đủ cho tất cả các logo */
+  animation: scroll-logo 60s linear infinite;
 }
 
 @keyframes scroll-logo {
   0% {
-      transform: translateX(0)
+    transform: translateX(0);
   }
-
+  50% {
+    transform: translateX(-50%); /* Di chuyển một nửa của các logo */
+  }
   100% {
-      transform: translateX(-100%)
+    transform: translateX(-100%); /* Di chuyển hết */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logos {
+    animation-duration: 120s; /* Tăng tốc độ di chuyển cho màn hình nhỏ */
   }
 }
 

@@ -113,14 +113,14 @@ const Introduce = () => {
           >
               <div className="logos flex gap-10">
               {CorporateItems.concat(CorporateItems).map((item, index) => (
-              <div key={index} className="flex-shrink-0 mx-4">
-                <img
-                  className="h-12 logo-corporate object-fill rounded"
-                  src={item.logo}
-                  alt={item.name}
-                />
-              </div>
-            ))}
+          <div key={index} className="flex-shrink-0 mx-4">
+            <img
+              className="h-12 logo-corporate object-fill rounded"
+              src={item.logo}
+              alt={item.name}
+            />
+          </div>
+        ))}
               </div>
           </div>
         </div>
@@ -133,9 +133,12 @@ const Introduce = () => {
           data-aos="fade-up"
           data-aos-anchor-placement="top-bottom"
           data-aos-once="true"
-          className="text-center font-bold text-4xl lg:text-5xl mb-10 text-[#252525]"
+          className="text-center font-bold text-4xl lg:text-5xl mb-3 text-[#252525]"
         >
-          {t("empowering_innovation")}
+          About Us
+        </p>
+        <p data-aos="fade-up" data-aos-once="true" className="text-lg text-center text-[#4b4b4c] mb-10">
+        We are committed to empowering innovation while ensuring reliability in all our solutions
         </p>
         <div className="block lg:flex gap-10 justify-between items-center">
           <div className="mb-20 lg:mb-0">
@@ -157,7 +160,7 @@ const Introduce = () => {
             data-aos-once="true"
             src="logo/bg.jpeg"
             alt=""
-            className="w-140 h-110 rounded-lg"
+            className="w-130 h-90 rounded-lg"
           />
         </div>
       </section>
