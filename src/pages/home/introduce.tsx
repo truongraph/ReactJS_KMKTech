@@ -155,7 +155,7 @@ const Introduce = () => {
             data-aos="fade-up"
             data-aos-anchor-placement="top-bottom"
             data-aos-once="true"
-            src="logo/bg.png"
+            src="logo/bg.jpeg"
             alt=""
             className="w-140 h-110 rounded-lg"
           />
