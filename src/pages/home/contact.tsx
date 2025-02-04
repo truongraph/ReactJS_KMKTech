@@ -1,42 +1,43 @@
-// import { useState } from "react";
-// import { ref, set } from "firebase/database";
-// import { database } from "../../../firebase";
+import { useState } from "react";
+import { ref, set } from "firebase/database";
+import { database } from "../../../firebase";
 
 const Contact = () => {
-  // const [formData, setFormData] = useState({
-  //   fullName: "",
-  //   email: "",
-  //   phone: "",
-  //   subject: "",
-  //   message: ""
-  // });
-  // const [isSuccess, setIsSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // const handleChange = (
-  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  // ) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   const formRef = ref(database, "contacts/" + Date.now());
-  //   set(formRef, formData)
-  //     .then(() => {
-  //       setIsSuccess(true);
-  //       setTimeout(() => setIsSuccess(false), 4000);
-  //       setFormData({
-  //         fullName: "",
-  //         email: "",
-  //         phone: "",
-  //         subject: "",
-  //         message: ""
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error writing to Firebase:", error);
-  //     });
-  // };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const formRef = ref(database, "contacts/" + Date.now());
+    set(formRef, formData)
+  .then(() => {
+    setIsSuccess(true);
+    setTimeout(() => setIsSuccess(false), 4000);
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: ""
+    });
+  })
+  .catch((error) => {
+    console.error("Error writing to Firebase:", error);
+    // Bạn có thể hiển thị lỗi cho người dùng nếu cần
+  });
+  };
 
   return (
     <section
@@ -75,7 +76,7 @@ const Contact = () => {
             </div>
           </div>
           {/* Form nhập thông tin */}
-          {/* <div className=" col-span-6 lg:col-span-3">
+          <div className=" col-span-6 lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-5">
                 <input
@@ -124,7 +125,7 @@ const Contact = () => {
             {isSuccess && <p className="text-center text-[#25b838] mt-4 font-bold border w-full p-2 rounded-2xl border-[#25b838]">
               Thank you! Your information has been sent successfully!
             </p>}
-          </div> */}
+          </div>
         </div>
       </div>
     </section>
