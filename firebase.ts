@@ -8,7 +8,7 @@ const firebaseConfig = {
   apiKey: import.meta.env.VITE_DEV_API_KEY,
   authDomain: import.meta.env.VITE_DEV_AUTH_DOMAIN,
   databaseURL: import.meta.env.VITE_DEV_DATABASE_URL,
-//  projectId: import.meta.env.VITE_DEV_PROJECT_ID,
+  projectId: "kmk-technology",
   storageBucket: import.meta.env.VITE_DEV_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_DEV_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_DEV_APP_ID,
@@ -18,6 +18,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app);
-const auth = getAuth(app); // Initialize Firebase Authentication
+const auth = getAuth(app);
 
 export { app, analytics, database, auth };
