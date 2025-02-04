@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
-
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
 const Introduce = () => {
   const { t } = useTranslation();
   const CorporateItems = [
@@ -38,6 +40,17 @@ const Introduce = () => {
       description: t("ic_target_description")
     }
   ];
+
+  const handleScrollTo = (target: string) => {
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: {
+        y: target,
+        autoKill: true
+      },
+      ease: "power2.out"
+    });
+  };
 
   return (
     <>
@@ -78,6 +91,7 @@ const Introduce = () => {
           <div className="max-w-screen-md mx-auto mt-15 flex items-center justify-center">
             <button
               data-aos="zoom-out"
+              onClick={() => handleScrollTo("#contact")}
               className="bg-[#0859D8] hover:bg-[#0C5DDD] p-4 text-lg px-10 rounded-2xl font-medium text-white"
             >
               {t("contact_us")}
@@ -143,7 +157,7 @@ const Introduce = () => {
             data-aos-once="true"
             src="logo/bg.png"
             alt=""
-            className="w-135 h-100 rounded-lg"
+            className="w-140 h-110 rounded-lg"
           />
         </div>
       </section>

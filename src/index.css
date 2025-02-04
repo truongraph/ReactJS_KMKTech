@@ -94,28 +94,43 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
+  background-color: #ffffff; /* Mặc định là trắng */
   transition: opacity 0.5s ease, visibility 0.5s ease;
-  opacity: 1;
-  visibility: visible;
 }
 
-.loader-container.hidden {
-  opacity: 0;
-  visibility: hidden;
+@media (prefers-color-scheme: dark) {
+  .loader-container {
+    background-color: #fff;
+  }
 }
 
 .spinner {
   width: 40px;
   height: 40px;
   border: 3px solid;
-  border-color: #ffff transparent #fff transparent;
+  border-color: #4476E8 transparent #4476E8 transparent;
   border-radius: 50%;
   animation: spin-anim 2s linear infinite;
   display: block;
   margin: auto;
   margin-top: 40px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .spinner {
+    width: 40px;
+  height: 40px;
+  border: 3px solid;
+  border-color: #4476E8 transparent #4476E8 transparent;
+  border-radius: 50%;
+  animation: spin-anim 2s linear infinite;
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  }
+}
+
 
 
 
@@ -354,13 +369,11 @@
 
   50% {
     transform: translateY(-10px);
-    /* Điều chỉnh giá trị này để điều chỉnh độ nhấp nhô */
   }
 }
 
 .bouncing-image {
   animation: bounce 6s infinite ease-in-out;
-  /* 2s là thời gian vòng quay, có thể thay đổi theo yêu cầu */
 }
 
 .footer-cta {

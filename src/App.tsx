@@ -19,14 +19,14 @@ function App() {
     },
   });
 
-  const [loading, setLoading] = useState(true); // Bắt đầu ở trạng thái loading
-  const [fadeOut, setFadeOut] = useState(false); // Kiểm soát mờ dần
+  const [loading, setLoading] = useState(true); 
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setFadeOut(true); // Kích hoạt mờ dần
-      setTimeout(() => setLoading(false), 500); // Ẩn hoàn toàn sau 0.5 giây (khớp với transition)
-    }, 1000); // Thời gian hiển thị loader (1 giây)
+      setFadeOut(true); // Thực hiện fade out loader sau 1 giây
+      setTimeout(() => setLoading(false), 500); // Đảm bảo ẩn loader sau hiệu ứng fade out
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -56,7 +56,7 @@ function App() {
         <div className={`loader-container ${fadeOut ? "hidden" : ""}`}>
           <div>
             <img
-              src={"/logo/whitelonglogo.png"}
+              src={"/logo/longlogo.png"}
               alt="Logo"
               className="block m-auto w-80"
             />

@@ -9,7 +9,7 @@ const DotCursor = () => {
   const animationRef = useRef<number | null>(null);
 
   const handleMouseMove = (e: MouseEvent) => {
-    setDotPosition({ x: e.clientX, y: e.clientY }); // Sử dụng clientX và clientY
+    setDotPosition({ x: e.clientX, y: e.clientY });
   };
 
   const handleMouseEnter = () => setIsHovering(true);

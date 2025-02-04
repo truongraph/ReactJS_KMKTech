@@ -5,7 +5,7 @@ const Products = () => {
       image: "images/product/medical.jpg",
       description:
         "Comprehensive management solution for general and family doctor clinics. Fully meets the medical examination and treatment management requirements according to the circulars of the Ministry of Health.",
-      link: "",
+      link: "https://medifam.vn/",
       key_features: [
         "Register examination",
         "Pharma Warehousing",
@@ -17,7 +17,7 @@ const Products = () => {
       image: "images/product/sales.webp",
       description:
         "Sales management software for business owners. Fully meets sales management requirements to help customers maximize their business capacity. Work anytime, anywhere.",
-      link: "",
+      link: "https://kmksales.vn/",
       key_features: ["Stock warehouse", "Sales Report", "Product Catalog"]
     },
     {
@@ -25,7 +25,7 @@ const Products = () => {
       image: "images/product/wms.png",
       description:
         "These solutions help manage inventory, track goods as they move in and out of the warehouse, and ensure efficient storage, retrieval, and shipping of products.",
-      link: "",
+      link: "#",
       key_features: [
         "Inventory management",
         "Order management",
@@ -37,7 +37,7 @@ const Products = () => {
       image: "images/product/yhgd.webp",
       description:
         "The Family Doctor Center was established in 2002 with the aim of training primary care physicians to practice according to the principles of Family Medicine (FMM) and developing the FMM specialty for the Southern provinces.",
-      link: "",
+      link: "https://yhgd.vn/",
       key_features: ["Stock warehouse", "Sales Report", "Product Catalog"]
     }
   ];

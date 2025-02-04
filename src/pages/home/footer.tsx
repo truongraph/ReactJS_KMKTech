@@ -77,7 +77,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <p className="my-2  ">
+            <p className="my-2">
               <b>Address</b>: 17 Street 24B, Binh Tri Dong B Ward, Binh Tan
               District, Ho Chi Minh City
             </p>
