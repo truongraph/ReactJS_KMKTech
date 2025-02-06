@@ -160,7 +160,7 @@
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #FFF;
   font-size: calc(3rem + 2.4vw);
-  line-height: calc(3rem + 2.4vw);
+  line-height: calc(3rem + 3.3vw)
 }
 
 .logo-bridge {
@@ -187,8 +187,9 @@
 
 .logos {
   display: flex;
-  width: 100%; /* Đảm bảo chiều rộng đủ cho tất cả các logo */
-  animation: scroll-logo 60s linear infinite;
+  width: 100%; 
+  animation: scroll-logo 300s linear infinite;
+  animation-duration: 120s; 
 }
 
 @keyframes scroll-logo {
@@ -196,16 +197,16 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(-50%); /* Di chuyển một nửa của các logo */
+    transform: translateX(-50%);
   }
   100% {
-    transform: translateX(-100%); /* Di chuyển hết */
+    transform: translateX(-100%); 
   }
 }
 
 @media screen and (max-width: 768px) {
   .logos {
-    animation-duration: 120s; /* Tăng tốc độ di chuyển cho màn hình nhỏ */
+    animation-duration: 120s; 
   }
 }
 
@@ -430,6 +431,14 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9998;
+}
+@media screen and (max-width: 768px) {
+  .dot-cursor{
+   display: none;
+  }
+  .border-cursor{
+    display: none !important;
+  }
 }
 
 .about-section {

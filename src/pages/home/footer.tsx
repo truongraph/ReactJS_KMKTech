@@ -1,7 +1,10 @@
 import clsx from "clsx";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation(); // Khởi tạo i18n hook
+
   return (
     <footer
       id="contact"
@@ -15,16 +18,14 @@ const Footer = () => {
               data-aos-once="true"
               className="text-center text-4xl lg:text-5xl font-bold mb-3 text-[#E0E0ED]"
             >
-              Ready to Partner with Us?
+              {t("footer_ready_to_partner")}
             </p>
             <p
               data-aos="zoom-in-up"
               data-aos-once="true"
               className="text-center text-[#E0E0ED] mb-10 px-20"
             >
-              Take the first step today and enhance your brand with our
-              professional design solutions. Reach out to us and let’s explore
-              how we can assist you in achieving your goals.
+              {t("footer_description")}
             </p>
             <div
               data-aos="zoom-in"
@@ -32,7 +33,7 @@ const Footer = () => {
               className="max-w-screen-md mx-auto flex items-center justify-center"
             >
               <button className="bg-[#0859D8] hover:bg-[#0C5DDD] p-4 text-lg px-10 rounded-2xl font-medium text-white">
-                Contact Us Now
+                {t("footer_contact_us")}
               </button>
             </div>
           </div>
@@ -49,10 +50,7 @@ const Footer = () => {
               className={clsx(["w-45 h-12 flex object-contain"])}
             />
             <p className="text-[#E0E0ED] mt-3 w-110 text-base lg:text-sm">
-              We simplify your business operations by streamlining processes and
-              reducing complexity, allowing you to focus on core activities. KMK
-              innovates continuously to deliver cutting-edge solutions and
-              exceed industry standards.
+              {t("footer_about")}
             </p>
           </div>
           <div
@@ -78,14 +76,13 @@ const Footer = () => {
               </li>
             </ul>
             <p className="my-2">
-              <b>Address</b>: 17 Street 24B, Binh Tri Dong B Ward, Binh Tan
-              District, Ho Chi Minh City
+              <b>{t("footer_address_label")}</b>: 17 Street 24B, Binh Tri Dong B Ward, Binh Tan District, Ho Chi Minh City
             </p>
             <p className="my-2">
-              <b>Mail:</b> trung.ht@kmk-tech.vn
+              <b>{t("footer_mail_label")}</b>: trung.ht@kmk-tech.vn
             </p>
             <p>
-              <b>Phone:</b> 0938 220 711 - Trung Huynh Tan
+              <b>{t("footer_phone_label")}</b>: 0938 220 711 - Trung Huynh Tan
             </p>
             <ul className="text-[#E0E0ED] mt-3 outline-none text-right text-sm flex gap-5 font-medium">
               <li>
@@ -102,15 +99,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          {/* <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61571784489341&tabs=timeline&width=300&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=165611498166179"
-            width="300"
-            height="130"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe> */}
         </div>
         <p className="pb-5 border-t border-[#0d2a53]  pt-5 text-center text-[#E0E0ED] text-base lg:text-sm">
-          © {moment().format("YYYY")} - All rights reserved by{" "}
+          © {moment().format("YYYY")} - {t("footer_rights_reserved")}{" "}
           <span className="font-semibold">KMK TECHNOLOGY</span>
         </p>
       </section>

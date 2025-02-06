@@ -70,7 +70,7 @@ const Introduce = () => {
               <path
                 d="M16 3C16 10.1797 21.8203 16 29 16C21.8203 16 16 21.8203 16 29C16 21.8203 10.1797 16 3 16C10.1797 16 16 10.1797 16 3Z"
                 stroke="currentColor"
-                stroke-width="1.5"
+                strokeWidth="1.5"
               ></path>
             </svg>
             <div className="relative top-0.5 text-[#0a0a0a]">
@@ -135,10 +135,10 @@ const Introduce = () => {
           data-aos-once="true"
           className="text-center font-bold text-4xl lg:text-5xl mb-3 text-[#252525]"
         >
-          About Us
+          {t("about")}
         </p>
         <p data-aos="fade-up" data-aos-once="true" className="text-lg text-center text-[#4b4b4c] mb-10">
-        We are committed to empowering innovation while ensuring reliability in all our solutions
+        {t("empowering_innovation_reliability")}
         </p>
         <div className="block lg:flex gap-10 justify-between items-center">
           <div className="mb-20 lg:mb-0">

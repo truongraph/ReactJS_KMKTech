@@ -1,43 +1,22 @@
 import clsx from "clsx";
-import { LANGUAGES } from "../../constants";
-import { useTranslation } from "react-i18next";
-import { useState } from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { LANGUAGES } from "../../constants";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const MobileMenu = () => {
+const MobileHiringMenu = () => {
   const { i18n, t } = useTranslation();
 
   const onChangeLang = (lang_code: string) => {
     i18n.changeLanguage(lang_code);
   };
 
-  const Menulist = [
-    { name: "introduce", link: "#introduce" },
-    { name: "products", link: "#products" },
-    { name: "services", link: "#services" },
-    { name: "clients", link: "#clients" },
-    { name: "contact", link: "#contact" }
-  ];
-
 
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
-
-  
-  const handleScrollTo = (target: string) => {
-    gsap.to(window, {
-      duration: 1.5,
-      scrollTo: {
-        y: target,
-        autoKill: true,
-      },
-      ease: "power2.out",
-    });
-  };
 
   return (
     <>
@@ -96,27 +75,14 @@ const MobileMenu = () => {
         <div className="pt-30 pb-10 px-6 min-h-screen flex flex-col">
           <div className="flex-grow border-b pb-6 mb-10">
             <ul className="font-semibold inline-grid text-black-500 w-full items-center">
-              {Menulist.map((link) => (
-                <li
-                  key={link.name}
-                  className={
-                    "py-3 text-left font-bold cursor-pointer text-4xl animation-hover w-full mb-5" +
-                    (activeLink === link.link
-                      ? " rounded-full animation-active "
-                      : "")
-                  }
-                >
-                  <a
-                    onClick={() => {
-                      setActiveLink(link.link);
-                      handleScrollTo(link.link);
-                      setIsOpen(!isOpen)
-                    }}
-                  >
-                    {t(`${link.name}`)}
-                  </a>
+            <Link to="/">
+                <li  className={
+                    "py-3 text-left font-bold cursor-pointer text-4xl animation-hover w-full mb-5 rounded-full animation-active"
+                    
+                  }>
+                {t("home")}
                 </li>
-              ))}
+              </Link>
                     <Link to="/hiring">
                 <li  className={
                     "py-3 text-left font-bold cursor-pointer text-4xl animation-hover w-full mb-5 rounded-full animation-active"
@@ -152,4 +118,4 @@ const MobileMenu = () => {
   );
 };
 
-export default MobileMenu;
+export default MobileHiringMenu;

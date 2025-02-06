@@ -1,5 +1,7 @@
+import { useTranslation } from "react-i18next";
 
 const Clients = () => {
+   const { t } = useTranslation();
   const CorporateItems = [
     { name: "Pepsico", logo: "images/svg/corporate/pepsico-logo.svg" },
     { name: "An Cường", logo: "images/svg/corporate/an-cuong.svg" },
@@ -50,9 +52,9 @@ const Clients = () => {
     <section id="clients" className="border-sm-0 clients relative -top-50 pt-40 !bg-white !rounded-b-none px-20">
       <div className="max-w-screen-lg relative mx-auto py-20">
         <div>
-          <p data-aos="fade-down" data-aos-once="true"  className="text-center text-5xl font-bold mb-3 text-[#252525]">Our Clients</p>
+          <p data-aos="fade-down" data-aos-once="true"  className="text-center text-5xl font-bold mb-3 text-[#252525]">{t("clients_title")}</p>
           <p data-aos="fade-up" data-aos-once="true"  className="text-lg text-center text-[#4b4b4c] mb-10">
-            Our clients are at the heart of everything we do
+          {t("clients_description")}
           </p>
 
           {/* Corporate Clients */}

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Platform = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const { t } = useTranslation();
   const platformItems = [
     { icon: "images/svg/platform/SAP.svg", alt: "SAP Power builder" },
     { icon: "images/svg/platform/oracle-logo.svg", alt: "Oracle Database" },
@@ -50,14 +51,10 @@ const Platform = () => {
             data-aos-once="true"
             className="text-center text-[#E0E0ED] text-5xl font-bold mb-10"
           >
-            Tools we use
+             {t("tools_we_use")}
           </p>
           <p data-aos="fade-up" data-aos-once="true" className="text-lg w-3/4 block m-auto text-center text-[#E0E0ED] mb-20">
-            The KMK TECHNOLOGY platform is crafted to equip businesses with
-            innovative solutions that boost productivity and optimize
-            operations. We are committed to addressing the varied needs of our
-            clients, cultivating enduring partnerships based on trust and shared
-            success.
+          {t("tools_description")}
           </p>
           <div className="tools-section flex flex-wrap gap-10 items-center justify-center mt-10">
             {platformItems.map((x, i) => {
