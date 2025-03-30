@@ -1,11 +1,16 @@
+import { useEffect, useState } from "react";
 import { RecoilRoot } from "recoil";
 import { ReactFlowProvider } from "reactflow";
 import { QueryClient, QueryClientProvider } from "react-query";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AppRouter from "./AppRouter";
-import { useEffect, useState } from "react";
 import DotCursor from "./pages/component/animatedCursor";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   AOS.init();
@@ -19,15 +24,14 @@ function App() {
     },
   });
 
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setFadeOut(true); // Thực hiện fade out loader sau 1 giây
-      setTimeout(() => setLoading(false), 500); // Đảm bảo ẩn loader sau hiệu ứng fade out
+      setFadeOut(true);
+      setTimeout(() => setLoading(false), 500);
     }, 1000);
-
     return () => clearTimeout(timeout);
   }, []);
 
@@ -35,20 +39,26 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 50) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
+      setShowButton(window.pageYOffset > 50);
     });
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    gsap.to(window, { scrollTo: 0, duration: 1, ease: "power2.out" });
   };
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.5, 
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+    });
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    return () => lenis.destroy(); 
+  }, []);
 
   return (
     <>
