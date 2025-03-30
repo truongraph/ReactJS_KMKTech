@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   AOS.init();
+
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -26,6 +27,7 @@ function App() {
 
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -35,12 +37,15 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
-  const [showButton, setShowButton] = useState(false);
-
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       setShowButton(window.pageYOffset > 50);
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -49,15 +54,33 @@ function App() {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5, 
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      duration: 1.5, // Tốc độ cuộn
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Hiệu ứng easing
+      gestureOrientation: "vertical", // Cuộn theo chiều dọc
+      wheelMultiplier: 1, // Điều chỉnh tốc độ cuộn chuột
+      touchMultiplier: 2, // Điều chỉnh tốc độ khi cuộn trên mobile
+      infinite: false, // Không cuộn vô tận
     });
-    function raf(time: number) {
+
+    // Animation frame để cập nhật Lenis
+    const animate = (time: number) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy(); 
+      requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+
+    // Lắng nghe sự kiện scroll
+    const onScroll = () => lenis.raf(performance.now());
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      lenis.destroy();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.history.scrollRestoration = "manual"; // Ngăn trình duyệt tự động cuộn lại
   }, []);
 
   return (
@@ -65,25 +88,19 @@ function App() {
       {loading && (
         <div className={`loader-container ${fadeOut ? "hidden" : ""}`}>
           <div>
-            <img
-              src={"/logo/longlogo.png"}
-              alt="Logo"
-              className="block m-auto w-80"
-            />
+            <img src={"/logo/longlogo.png"} alt="Logo" className="block m-auto w-80" />
             <div className="spinner"></div>
           </div>
         </div>
       )}
       {!loading && (
-        <>
-          <RecoilRoot>
-            <ReactFlowProvider>
-              <QueryClientProvider client={queryClient}>
-                <AppRouter />
-              </QueryClientProvider>
-            </ReactFlowProvider>
-          </RecoilRoot>
-        </>
+        <RecoilRoot>
+          <ReactFlowProvider>
+            <QueryClientProvider client={queryClient}>
+              <AppRouter />
+            </QueryClientProvider>
+          </ReactFlowProvider>
+        </RecoilRoot>
       )}
       {showButton && (
         <svg
@@ -94,12 +111,7 @@ function App() {
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 15l7-7 7 7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
         </svg>
       )}
       <DotCursor />
